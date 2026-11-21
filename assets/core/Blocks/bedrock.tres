@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="VoxelBlock" format=3 uid="uid://srs01ga18286"]
+
+[ext_resource type="Script" uid="uid://ca8gwafiy2k1v" path="res://addons/ldk/core/Voxel/Blocks/voxel_block.gd" id="block"]
+[ext_resource type="Script" uid="uid://b3nxbh1ffgdss" path="res://addons/ldk/core/Voxel/Blocks/voxel_geometry.gd" id="geometry"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/opaque.tres" id="opaque"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/solid.tres" id="solid"]
+
+[sub_resource type="Resource" id="visual"]
+script = ExtResource("geometry")
+cube = true
+face_tiles = Array[StringName]([&"core:stone", &"core:stone", &"core:stone", &"core:stone", &"core:stone", &"core:stone"])
+
+[resource]
+script = ExtResource("block")
+key = &"core:bedrock"
+geometry = SubResource("visual")
+collision = ExtResource("solid")
+occlusion = ExtResource("opaque")

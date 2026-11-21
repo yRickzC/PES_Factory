@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/Data/voxel_mining_config.gd" id="1_config"]
+
+[resource]
+script = ExtResource("1_config")
+recovery_delay = 0.8
+recovery_seconds = 1.4
+expire_after = 0.0
+base_speed = 1.0

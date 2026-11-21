@@ -1,0 +1,101 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/World/demo_world.gd" id="1_demo"]
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/Streaming/voxel_world.gd" id="2_world"]
+[ext_resource type="Script" path="res://src/World/demo_player.gd" id="3_player"]
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/View/voxel_prop_view.gd" id="4_props"]
+[ext_resource type="PackedScene" path="res://src/UI/inventory.tscn" id="7_inventory"]
+[ext_resource type="Resource" path="res://assets/core/Worlds/overworld.tres" id="9_world_definition"]
+[ext_resource type="Script" path="res://addons/ldk/core/World/world_environment_view.gd" id="10_environment"]
+[ext_resource type="Script" path="res://addons/ldk/core/World/projected_ground_shadow.gd" id="12_projected_shadow"]
+[ext_resource type="Script" path="res://src/World/player_sprite_view.gd" id="13_avatar"]
+[ext_resource type="Resource" path="res://assets/core/Settings/player_sprite.tres" id="14_pose"]
+[ext_resource type="Script" path="res://addons/ldk/core/Wildlife/wildlife_population.gd" id="15_wildlife"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_player"]
+radius = 0.28
+height = 1.36
+
+[node name="MundoProcedural" type="Node3D" unique_id=1065722723]
+script = ExtResource("1_demo")
+world_definition = ExtResource("9_world_definition")
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+script = ExtResource("10_environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+
+[node name="World" type="Node3D" parent="."]
+script = ExtResource("2_world")
+
+[node name="Props" type="Node3D" parent="World"]
+script = ExtResource("4_props")
+
+[node name="Wildlife" type="Node3D" parent="World"]
+script = ExtResource("15_wildlife")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+process_physics_priority = -1
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("3_player")
+
+[node name="Collider" type="CollisionShape3D" parent="Player"]
+position = Vector3(0, 0.68, 0)
+shape = SubResource("Capsule_player")
+
+[node name="Shadow" type="Sprite3D" parent="Player"]
+position = Vector3(0, 0.021, 0)
+rotation_degrees = Vector3(-90, 0, 0)
+cast_shadow = 0
+texture_filter = 0
+pixel_size = 0.022
+script = ExtResource("12_projected_shadow")
+
+[node name="Avatar" type="Sprite3D" parent="Player"]
+position = Vector3(0, 1.438297, 0)
+scale = Vector3(1, 1.917729, 1)
+cast_shadow = 0
+texture_filter = 0
+alpha_cut = 1
+pixel_size = 0.0625
+region_enabled = true
+script = ExtResource("13_avatar")
+profile = ExtResource("14_pose")
+
+[node name="Head" type="Sprite3D" parent="Player/Avatar"]
+cast_shadow = 0
+texture_filter = 0
+alpha_cut = 1
+region_enabled = true
+
+[node name="Grip" type="Node3D" parent="Player/Avatar"]
+visible = false
+
+[node name="Tool" type="Sprite3D" parent="Player/Avatar/Grip"]
+visible = false
+cast_shadow = 0
+texture_filter = 0
+alpha_cut = 1
+
+[node name="Hand" type="Sprite3D" parent="Player/Avatar/Grip"]
+position = Vector3(0, 0, 0.014)
+cast_shadow = 0
+texture_filter = 0
+alpha_cut = 1
+region_enabled = true
+
+[node name="OffHand" type="Sprite3D" parent="Player/Avatar"]
+visible = false
+cast_shadow = 0
+texture_filter = 0
+alpha_cut = 1
+region_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+projection = 1
+current = true
+size = 16.0
+far = 110.0
+
+[node name="Inventory" parent="." instance=ExtResource("7_inventory")]

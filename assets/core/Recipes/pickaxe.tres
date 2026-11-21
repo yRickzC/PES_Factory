@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_recipe.gd" id="recipe"]
+
+[resource]
+script = ExtResource("recipe")
+id = &"core:pickaxe"
+tag = &"core:woodworking"
+description = "Monte uma picareta de pedra para minerar com golpes."
+ingredients = Dictionary[StringName, int]({&"core:timber": 2, &"core:stone": 2})
+product = &"core:pickaxe"
+product_count = 1
+seconds = 1.0

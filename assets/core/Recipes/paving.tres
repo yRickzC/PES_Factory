@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_recipe.gd" id="recipe"]
+
+[resource]
+script = ExtResource("recipe")
+id = &"core:paving"
+tag = &"core:masonry"
+description = "Corte pedra em ladrilhos para pavimentar caminhos."
+ingredients = Dictionary[StringName, int]({&"core:stone": 2})
+product = &"core:paving"
+product_count = 4
+seconds = 0.85

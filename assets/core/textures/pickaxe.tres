@@ -1,0 +1,10 @@
+[gd_resource type="ImageTexture" format=3]
+
+[ext_resource type="Script" path="res://assets/core/textures/pickaxe_texture.gd" id="sprite"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/timber.png" id="timber"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/stone.png" id="stone"]
+
+[resource]
+script = ExtResource("sprite")
+timber = ExtResource("timber")
+stone = ExtResource("stone")

@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/UI/editor/component_picker.gd" id="1"]
+
+[node name="ComponentPicker" type="PopupPanel"]
+visible = false
+title = "Adicionar componente"
+script = ExtResource("1")
+
+[node name="Layout" type="VBoxContainer" parent="."]
+theme_override_constants/separation = 8
+
+[node name="Search" type="LineEdit" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Buscar por nome, categoria ou descrição…"
+clear_button_enabled = true
+
+[node name="Results" type="Tree" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+hide_folding = true
+select_mode = 1
+
+[node name="Empty" type="Label" parent="Layout"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Nenhum componente encontrado."
+horizontal_alignment = 1

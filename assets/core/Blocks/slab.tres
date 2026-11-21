@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="VoxelBlock" format=3 uid="uid://dnxiv0n6u5cap"]
+
+[ext_resource type="Script" uid="uid://ca8gwafiy2k1v" path="res://addons/ldk/core/Voxel/Blocks/voxel_block.gd" id="block"]
+[ext_resource type="Script" uid="uid://bk71ae5i605pk" path="res://addons/ldk/core/Content/content_breakable.gd" id="breakable"]
+[ext_resource type="Script" uid="uid://bl7opclpybftm" path="res://addons/ldk/core/Voxel/Blocks/voxel_collision.gd" id="collision"]
+[ext_resource type="Script" uid="uid://s26kkx727s5c" path="res://addons/ldk/core/Content/content_drops.gd" id="drops"]
+[ext_resource type="Script" uid="uid://b3nxbh1ffgdss" path="res://addons/ldk/core/Voxel/Blocks/voxel_geometry.gd" id="geometry"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/Models/slab.tres" id="model"]
+[ext_resource type="Script" uid="uid://dsek3vela512p" path="res://addons/ldk/core/Voxel/Blocks/voxel_occlusion.gd" id="occlusion"]
+
+[sub_resource type="Resource" id="resistance"]
+script = ExtResource("breakable")
+seconds = 0.8
+
+[sub_resource type="Resource" id="collider"]
+script = ExtResource("collision")
+model = ExtResource("model")
+full_sides = 8
+
+[sub_resource type="Resource" id="rewards"]
+script = ExtResource("drops")
+items = Dictionary[StringName, int]({
+&"core:slab": 1
+})
+
+[sub_resource type="Resource" id="visual"]
+script = ExtResource("geometry")
+model = ExtResource("model")
+
+[sub_resource type="Resource" id="occluder"]
+script = ExtResource("occlusion")
+full_sides = 8
+
+[resource]
+script = ExtResource("block")
+key = &"core:slab"
+geometry = SubResource("visual")
+collision = SubResource("collider")
+occlusion = SubResource("occluder")
+breakable = SubResource("resistance")
+drops = SubResource("rewards")

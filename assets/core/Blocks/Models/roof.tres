@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoxelModel" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/Blocks/voxel_model.gd" id="1_vu7rk"]
+
+[resource]
+script = ExtResource("1_vu7rk")
+vertices = PackedVector3Array(0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0)
+boundaries = PackedInt32Array(1, 0, 5, 5, -1, -1, 3, 3)
+uv = PackedVector2Array(0, 0, 0, -1, 1, 0, 0, 0, 1, 0, 0, -1, 0, 0, 1, 0, 1, -1, 0, 0, 1, -1, 0, -1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0)
+tiles = Array[StringName]([&"core:roof", &"core:roof", &"core:roof", &"core:roof", &"core:roof", &"core:roof", &"core:roof", &"core:roof"])

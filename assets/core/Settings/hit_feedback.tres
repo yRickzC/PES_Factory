@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="HitFeedbackProfile" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/HitFeedback/hit_feedback_profile.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+hitstop_seconds = 0.045
+knockback_speed = 4.2
+knockback_seconds = 0.16
+flash_strength = 1.0
+flash_seconds = 0.08
+deformation_seconds = 0.16
+squash_scale = Vector3(1.12, 0.78, 1.12)
+stretch_scale = Vector3(0.96, 1.1, 0.96)
+recoil_distance = 0.08
+recoil_seconds = 0.1
+camera_shake_pixels = 2.0
+camera_shake_seconds = 0.12

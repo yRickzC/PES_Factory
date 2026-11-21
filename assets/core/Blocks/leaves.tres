@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="VoxelBlock" format=3 uid="uid://b82ilq3i1d4ad"]
+
+[ext_resource type="Script" uid="uid://ca8gwafiy2k1v" path="res://addons/ldk/core/Voxel/Blocks/voxel_block.gd" id="block"]
+[ext_resource type="Script" uid="uid://bk71ae5i605pk" path="res://addons/ldk/core/Content/content_breakable.gd" id="breakable"]
+[ext_resource type="Script" uid="uid://s26kkx727s5c" path="res://addons/ldk/core/Content/content_drops.gd" id="drops"]
+[ext_resource type="Script" uid="uid://b3nxbh1ffgdss" path="res://addons/ldk/core/Voxel/Blocks/voxel_geometry.gd" id="geometry"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/opaque.tres" id="opaque"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/solid.tres" id="solid"]
+
+[sub_resource type="Resource" id="resistance"]
+script = ExtResource("breakable")
+seconds = 0.25
+
+[sub_resource type="Resource" id="rewards"]
+script = ExtResource("drops")
+items = Dictionary[StringName, int]({
+&"core:leaves": 1
+})
+
+[sub_resource type="Resource" id="visual"]
+script = ExtResource("geometry")
+cube = true
+face_tiles = Array[StringName]([&"core:leaves", &"core:leaves", &"core:leaves", &"core:leaves", &"core:leaves", &"core:leaves"])
+
+[resource]
+script = ExtResource("block")
+key = &"core:leaves"
+geometry = SubResource("visual")
+collision = ExtResource("solid")
+occlusion = ExtResource("opaque")
+breakable = SubResource("resistance")
+drops = SubResource("rewards")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VoxelBiomeScatter" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/Generation/voxel_biome_scatter.gd" id="scatter"]
+
+[resource]
+script = ExtResource("scatter")
+variants = Array[StringName]([&"core:mountain_boulder"])
+spacing = 13
+chance = 0.6
+radius = 0
+attempts = 1
+elevation = Vector2i(8, 12)
+max_step = 1

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ContentScene" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene.gd" id="entity"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene_visual.gd" id="visual"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_breakable.gd" id="breakable"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene_collision.gd" id="collision"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_drops.gd" id="drops"]
+
+[sub_resource type="Resource" id="appearance"]
+script = ExtResource("visual")
+scene_path = "res://assets/core/Entities/boulder.tscn"
+sprite_textures = Dictionary[NodePath, StringName]({
+NodePath("Rock"): &"core:mountain_boulder",
+NodePath("GroundShadow"): &"core:shadow"
+})
+targeting_sprite = NodePath("Rock")
+
+[sub_resource type="Resource" id="resistance"]
+script = ExtResource("breakable")
+seconds = 1.05
+
+[sub_resource type="CylinderShape3D" id="shape"]
+height = 0.62
+radius = 0.49
+
+[sub_resource type="Resource" id="collider"]
+script = ExtResource("collision")
+shape = SubResource("shape")
+offset = Vector3(0, 0.31, 0)
+layers = 4
+
+[sub_resource type="Resource" id="rewards"]
+script = ExtResource("drops")
+items = Dictionary[StringName, int]({&"core:stone": 2})
+
+[resource]
+script = ExtResource("entity")
+id = &"core:mountain_boulder"
+visual = SubResource("appearance")
+collision = SubResource("collider")
+breakable = SubResource("resistance")
+drops = SubResource("rewards")

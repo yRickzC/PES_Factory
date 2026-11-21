@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_recipe.gd" id="recipe"]
+
+[resource]
+script = ExtResource("recipe")
+id = &"core:fence"
+tag = &"core:woodworking"
+description = "Trechos de cerca se conectam automaticamente no mesmo nível."
+ingredients = Dictionary[StringName, int]({&"core:timber": 2})
+product = &"core:fence"
+product_count = 2
+seconds = 0.8

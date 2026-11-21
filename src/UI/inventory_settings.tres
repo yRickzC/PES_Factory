@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://eiyv8b5klfea"]
+
+[ext_resource type="Script" uid="uid://dq3hgiqyoa0bi" path="res://addons/ldk/core/Inventory/inventory_settings.gd" id="1_settings"]
+
+[resource]
+script = ExtResource("1_settings")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoxelBiomeScatter" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/Generation/voxel_biome_scatter.gd" id="scatter"]
+
+[resource]
+script = ExtResource("scatter")
+variants = Array[StringName]([&"core:tree_pine"])
+spacing = 13
+chance = 0.65
+elevation = Vector2i(6, 11)
+max_step = 1

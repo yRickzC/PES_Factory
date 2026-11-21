@@ -1,0 +1,185 @@
+[gd_resource type="Theme" format=3]
+
+[sub_resource type="StyleBoxFlat" id="Panel"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0.98, 0.96, 0.85, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13, 0.27, 0.23, 1)
+shadow_color = Color(0.13, 0.27, 0.23, 1)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="Button"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.86, 0.91, 0.75, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.22, 0.42, 0.33, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="ButtonHover"]
+bg_color = Color(0.94, 0.91, 0.68, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.30, 0.45, 0.31, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="ButtonPressed"]
+bg_color = Color(0.72, 0.83, 0.63, 1)
+border_width_left = 1
+border_width_top = 3
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.22, 0.42, 0.33, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="ButtonDisabled"]
+bg_color = Color(0.91, 0.90, 0.81, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color(0.72, 0.74, 0.64, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="Focus"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.65, 0.41, 0.17, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="PrimaryButton"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.15, 0.43, 0.35, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.09, 0.26, 0.22, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="PrimaryHover"]
+bg_color = Color(0.19, 0.47, 0.37, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 3
+border_color = Color(0.09, 0.26, 0.22, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="PrimaryPressed"]
+bg_color = Color(0.10, 0.33, 0.29, 1)
+border_width_left = 1
+border_width_top = 3
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.09, 0.26, 0.22, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="Field"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.99, 0.91, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.42, 0.54, 0.43, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="TreeHeader"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.81, 0.87, 0.69, 1)
+border_width_bottom = 1
+border_color = Color(0.42, 0.54, 0.43, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="SelectedRow"]
+bg_color = Color(0.20, 0.46, 0.37, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="HoveredRow"]
+bg_color = Color(0.89, 0.92, 0.78, 1)
+anti_aliasing = false
+
+[resource]
+default_font_size = 13
+Button/colors/font_color = Color(0.09, 0.24, 0.21, 1)
+Button/colors/font_disabled_color = Color(0.40, 0.44, 0.37, 1)
+Button/colors/font_focus_color = Color(0.09, 0.24, 0.21, 1)
+Button/colors/font_hover_color = Color(0.09, 0.24, 0.21, 1)
+Button/colors/font_pressed_color = Color(0.09, 0.24, 0.21, 1)
+Button/styles/disabled = SubResource("ButtonDisabled")
+Button/styles/focus = SubResource("Focus")
+Button/styles/hover = SubResource("ButtonHover")
+Button/styles/normal = SubResource("Button")
+Button/styles/pressed = SubResource("ButtonPressed")
+Label/colors/font_color = Color(0.09, 0.24, 0.21, 1)
+LineEdit/colors/caret_color = Color(0.09, 0.24, 0.21, 1)
+LineEdit/colors/font_color = Color(0.09, 0.24, 0.21, 1)
+LineEdit/colors/font_placeholder_color = Color(0.36, 0.43, 0.36, 1)
+LineEdit/colors/font_selected_color = Color(1, 0.99, 0.91, 1)
+LineEdit/colors/selection_color = Color(0.20, 0.46, 0.37, 1)
+LineEdit/styles/focus = SubResource("Focus")
+LineEdit/styles/normal = SubResource("Field")
+PanelContainer/styles/panel = SubResource("Panel")
+PrimaryButton/base_type = &"Button"
+PrimaryButton/colors/font_color = Color(1, 0.99, 0.91, 1)
+PrimaryButton/colors/font_focus_color = Color(1, 0.99, 0.91, 1)
+PrimaryButton/colors/font_hover_color = Color(1, 0.99, 0.91, 1)
+PrimaryButton/colors/font_pressed_color = Color(1, 0.99, 0.91, 1)
+PrimaryButton/styles/hover = SubResource("PrimaryHover")
+PrimaryButton/styles/normal = SubResource("PrimaryButton")
+PrimaryButton/styles/pressed = SubResource("PrimaryPressed")
+CheckButton/colors/font_color = Color(0.09, 0.24, 0.21, 1)
+CheckButton/colors/font_focus_color = Color(0.09, 0.24, 0.21, 1)
+CheckButton/colors/font_hover_color = Color(0.09, 0.24, 0.21, 1)
+CheckButton/colors/font_pressed_color = Color(0.09, 0.24, 0.21, 1)
+CheckButton/styles/focus = SubResource("Focus")
+TabContainer/colors/font_hovered_color = Color(0.09, 0.24, 0.21, 1)
+TabContainer/colors/font_selected_color = Color(1, 0.99, 0.91, 1)
+TabContainer/colors/font_unselected_color = Color(0.09, 0.24, 0.21, 1)
+TabContainer/styles/panel = SubResource("Field")
+TabContainer/styles/tab_hovered = SubResource("ButtonHover")
+TabContainer/styles/tab_selected = SubResource("PrimaryButton")
+TabContainer/styles/tab_unselected = SubResource("Button")
+Tree/colors/font_color = Color(0.09, 0.24, 0.21, 1)
+Tree/colors/font_hovered_color = Color(0.09, 0.24, 0.21, 1)
+Tree/colors/font_hovered_selected_color = Color(1, 0.99, 0.91, 1)
+Tree/colors/font_selected_color = Color(1, 0.99, 0.91, 1)
+Tree/colors/title_button_color = Color(0.09, 0.24, 0.21, 1)
+Tree/constants/draw_guides = 0
+Tree/constants/v_separation = 7
+Tree/font_sizes/font_size = 11
+Tree/font_sizes/title_button_font_size = 11
+Tree/styles/button_hover = SubResource("TreeHeader")
+Tree/styles/button_normal = SubResource("TreeHeader")
+Tree/styles/button_pressed = SubResource("TreeHeader")
+Tree/styles/focus = SubResource("Focus")
+Tree/styles/hovered = SubResource("HoveredRow")
+Tree/styles/hovered_selected = SubResource("SelectedRow")
+Tree/styles/hovered_selected_focus = SubResource("SelectedRow")
+Tree/styles/panel = SubResource("Field")
+Tree/styles/selected = SubResource("SelectedRow")
+Tree/styles/selected_focus = SubResource("SelectedRow")

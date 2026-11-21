@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_recipe.gd" id="recipe"]
+
+[resource]
+script = ExtResource("recipe")
+id = &"core:timber"
+tag = &"core:woodworking"
+description = "Corte um tronco em tábuas para construir ou fabricar outras peças."
+ingredients = Dictionary[StringName, int]({&"core:log": 1})
+product = &"core:timber"
+product_count = 4
+seconds = 0.6

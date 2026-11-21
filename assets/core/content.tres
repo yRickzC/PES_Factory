@@ -1,0 +1,180 @@
+[gd_resource type="Resource" format=3]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_pack.gd" id="pack"]
+[ext_resource type="Script" path="res://addons/ldk/core/Inventory/inventory_item.gd" id="item"]
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_recipe.gd" id="recipe"]
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_tag.gd" id="crafting_tag"]
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/Generation/voxel_biome.gd" id="biome"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene.gd" id="scene_definition"]
+[ext_resource type="Script" path="res://addons/ldk/core/Voxel/Blocks/voxel_block.gd" id="block_definition"]
+[ext_resource type="Resource" path="res://assets/core/Entities/tree.tres" id="tree"]
+[ext_resource type="Resource" path="res://assets/core/Entities/tree_broadleaf.tres" id="entity_tree_broadleaf"]
+[ext_resource type="Resource" path="res://assets/core/Entities/tree_pine.tres" id="entity_tree_pine"]
+[ext_resource type="Resource" path="res://assets/core/Entities/pig.tres" id="entity_pig"]
+[ext_resource type="Resource" path="res://assets/core/Entities/meadow_grass.tres" id="entity_meadow_grass"]
+[ext_resource type="Resource" path="res://assets/core/Entities/flower_gold.tres" id="entity_flower_gold"]
+[ext_resource type="Resource" path="res://assets/core/Entities/flower_rose.tres" id="entity_flower_rose"]
+[ext_resource type="Resource" path="res://assets/core/Entities/flower_lilac.tres" id="entity_flower_lilac"]
+[ext_resource type="Resource" path="res://assets/core/Entities/mountain_pebbles.tres" id="entity_mountain_pebbles"]
+[ext_resource type="Resource" path="res://assets/core/Entities/mountain_shards.tres" id="entity_mountain_shards"]
+[ext_resource type="Resource" path="res://assets/core/Entities/mountain_boulder.tres" id="entity_mountain_boulder"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/grass_flecked.tres" id="block_grass_flecked"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/earth_pebbled.tres" id="block_earth_pebbled"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/stone_mottled.tres" id="block_stone_mottled"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/grass.tres" id="block_grass"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/earth.tres" id="block_earth"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/stone.tres" id="block_stone"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/sand.tres" id="block_sand"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/moss.tres" id="block_moss"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/timber.tres" id="block_timber"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/log.tres" id="block_log"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/leaves.tres" id="block_leaves"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/paving.tres" id="block_paving"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/clay.tres" id="block_clay"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/plaster.tres" id="block_plaster"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/sill.tres" id="block_sill"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/bedrock.tres" id="block_bedrock"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/window.tres" id="block_window"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/water.tres" id="block_water"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/slab.tres" id="block_slab"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/stairs.tres" id="block_stairs"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/roof.tres" id="block_roof"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/roof_reversed.tres" id="block_roof_reversed"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/fence.tres" id="block_fence"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/wall.tres" id="block_wall"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/missing_block.tres" id="block_missing_block"]
+[ext_resource type="Resource" path="res://assets/core/Biomes/meadow.tres" id="biome_meadow"]
+[ext_resource type="Resource" path="res://assets/core/Biomes/forest.tres" id="biome_forest"]
+[ext_resource type="Resource" path="res://assets/core/Biomes/desert.tres" id="biome_desert"]
+[ext_resource type="Resource" path="res://assets/core/Biomes/mountain.tres" id="biome_mountain"]
+[ext_resource type="Resource" path="res://assets/core/Items/grass.tres" id="item_grass"]
+[ext_resource type="Resource" path="res://assets/core/Items/earth.tres" id="item_earth"]
+[ext_resource type="Resource" path="res://assets/core/Items/stone.tres" id="item_stone"]
+[ext_resource type="Resource" path="res://assets/core/Items/sand.tres" id="item_sand"]
+[ext_resource type="Resource" path="res://assets/core/Items/moss.tres" id="item_moss"]
+[ext_resource type="Resource" path="res://assets/core/Items/water.tres" id="item_water"]
+[ext_resource type="Resource" path="res://assets/core/Items/timber.tres" id="item_timber"]
+[ext_resource type="Resource" path="res://assets/core/Items/slab.tres" id="item_slab"]
+[ext_resource type="Resource" path="res://assets/core/Items/stairs.tres" id="item_stairs"]
+[ext_resource type="Resource" path="res://assets/core/Items/roof.tres" id="item_roof"]
+[ext_resource type="Resource" path="res://assets/core/Items/roof_reversed.tres" id="item_roof_reversed"]
+[ext_resource type="Resource" path="res://assets/core/Items/fence.tres" id="item_fence"]
+[ext_resource type="Resource" path="res://assets/core/Items/log.tres" id="item_log"]
+[ext_resource type="Resource" path="res://assets/core/Items/flower_gold.tres" id="item_flower_gold"]
+[ext_resource type="Resource" path="res://assets/core/Items/flower_rose.tres" id="item_flower_rose"]
+[ext_resource type="Resource" path="res://assets/core/Items/flower_lilac.tres" id="item_flower_lilac"]
+[ext_resource type="Resource" path="res://assets/core/Items/leaves.tres" id="item_leaves"]
+[ext_resource type="Resource" path="res://assets/core/Items/paving.tres" id="item_paving"]
+[ext_resource type="Resource" path="res://assets/core/Items/wall.tres" id="item_wall"]
+[ext_resource type="Resource" path="res://assets/core/Items/clay.tres" id="item_clay"]
+[ext_resource type="Resource" path="res://assets/core/Items/plaster.tres" id="item_plaster"]
+[ext_resource type="Resource" path="res://assets/core/Items/sill.tres" id="item_sill"]
+[ext_resource type="Resource" path="res://assets/core/Items/window.tres" id="item_window"]
+[ext_resource type="Resource" path="res://assets/core/Items/pickaxe.tres" id="item_pickaxe"]
+[ext_resource type="Resource" path="res://assets/core/Items/sword.tres" id="item_sword"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/pickaxe.tres" id="texture_pickaxe"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/sword.tres" id="texture_sword"]
+[ext_resource type="Resource" path="res://assets/core/CraftingTags/wood.tres" id="crafting_wood"]
+[ext_resource type="Resource" path="res://assets/core/CraftingTags/stone.tres" id="crafting_stone"]
+[ext_resource type="Resource" path="res://assets/core/CraftingTags/roof.tres" id="crafting_roof"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/timber.tres" id="recipe_timber"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/slab.tres" id="recipe_slab"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/stairs.tres" id="recipe_stairs"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/fence.tres" id="recipe_fence"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/paving.tres" id="recipe_paving"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/wall.tres" id="recipe_wall"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/roof.tres" id="recipe_roof"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/roof_reversed.tres" id="recipe_roof_reversed"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/pickaxe.tres" id="recipe_pickaxe"]
+[ext_resource type="Resource" path="res://assets/core/Recipes/sword.tres" id="recipe_sword"]
+
+[resource]
+script = ExtResource("pack")
+content_namespace = "core"
+version = "1.0.0"
+api_version = 1
+blocks = Array[ExtResource("block_definition")]([
+  ExtResource("block_grass"),
+  ExtResource("block_earth"),
+  ExtResource("block_stone"),
+  ExtResource("block_sand"),
+  ExtResource("block_moss"),
+  ExtResource("block_timber"),
+  ExtResource("block_log"),
+  ExtResource("block_leaves"),
+  ExtResource("block_paving"),
+  ExtResource("block_clay"),
+  ExtResource("block_plaster"),
+  ExtResource("block_sill"),
+  ExtResource("block_bedrock"),
+  ExtResource("block_window"),
+  ExtResource("block_water"),
+  ExtResource("block_slab"),
+  ExtResource("block_stairs"),
+  ExtResource("block_roof"),
+  ExtResource("block_roof_reversed"),
+  ExtResource("block_fence"),
+  ExtResource("block_wall"),
+  ExtResource("block_missing_block"),
+  ExtResource("block_grass_flecked"),
+  ExtResource("block_earth_pebbled"),
+  ExtResource("block_stone_mottled")
+])
+textures = Dictionary[StringName, Texture2D]({
+&"core:pickaxe": ExtResource("texture_pickaxe"),
+&"core:sword": ExtResource("texture_sword")
+})
+deferred_textures = Dictionary[StringName, String]({
+&"core:grass": "res://assets/core/textures/grass.png",
+&"core:grass_edge": "res://assets/core/textures/grass_edge.png",
+&"core:earth": "res://assets/core/textures/earth.png",
+&"core:stone": "res://assets/core/textures/stone.png",
+&"core:sand": "res://assets/core/textures/sand.png",
+&"core:moss": "res://assets/core/textures/moss.png",
+&"core:moss_edge": "res://assets/core/textures/moss_edge.png",
+&"core:water": "res://assets/core/textures/water.png",
+&"core:timber": "res://assets/core/textures/timber.png",
+&"core:roof": "res://assets/core/textures/roof.png",
+&"core:bark": "res://assets/core/textures/bark.png",
+&"core:rings": "res://assets/core/textures/rings.png",
+&"core:leaves": "res://assets/core/textures/leaves.png",
+&"core:paving": "res://assets/core/textures/paving.png",
+&"core:clay": "res://assets/core/textures/clay.png",
+&"core:plaster": "res://assets/core/textures/plaster.png",
+&"core:sill": "res://assets/core/textures/sill.png",
+&"core:window": "res://assets/core/textures/window.png",
+&"core:explorer": "res://assets/core/textures/explorer.png",
+&"core:tree": "res://assets/core/textures/tree.png",
+&"core:shadow": "res://assets/core/textures/shadow.png",
+&"core:slab_icon": "res://assets/core/textures/slab.png",
+&"core:stairs_icon": "res://assets/core/textures/stairs.png",
+&"core:fence_icon": "res://assets/core/textures/fence.png",
+&"core:tree_broadleaf": "res://assets/core/textures/tree_broadleaf.png",
+&"core:tree_pine": "res://assets/core/textures/tree_pine.png",
+&"core:meadow_grass": "res://assets/core/textures/meadow_grass.png",
+&"core:flower_gold": "res://assets/core/textures/flower_gold.png",
+&"core:flower_rose": "res://assets/core/textures/flower_rose.png",
+&"core:flower_lilac": "res://assets/core/textures/flower_lilac.png",
+&"core:mountain_pebbles": "res://assets/core/textures/mountain_pebbles.png",
+&"core:mountain_shards": "res://assets/core/textures/mountain_shards.png",
+&"core:mountain_boulder": "res://assets/core/textures/mountain_boulder.png",
+&"core:grass_flecked": "res://assets/core/textures/grass_flecked.png",
+&"core:earth_pebbled": "res://assets/core/textures/earth_pebbled.png",
+&"core:stone_mottled": "res://assets/core/textures/stone_mottled.png"
+})
+items = Array[ExtResource("item")]([ExtResource("item_grass"), ExtResource("item_earth"), ExtResource("item_stone"), ExtResource("item_sand"), ExtResource("item_moss"), ExtResource("item_water"), ExtResource("item_timber"), ExtResource("item_slab"), ExtResource("item_stairs"), ExtResource("item_roof"), ExtResource("item_roof_reversed"), ExtResource("item_fence"), ExtResource("item_log"), ExtResource("item_leaves"), ExtResource("item_paving"), ExtResource("item_wall"), ExtResource("item_clay"), ExtResource("item_plaster"), ExtResource("item_sill"), ExtResource("item_window"), ExtResource("item_flower_gold"), ExtResource("item_flower_rose"), ExtResource("item_flower_lilac"), ExtResource("item_pickaxe"), ExtResource("item_sword")])
+entities = Dictionary[StringName, ExtResource("scene_definition")]({
+&"core:tree": ExtResource("tree"),
+&"core:tree_broadleaf": ExtResource("entity_tree_broadleaf"),
+&"core:tree_pine": ExtResource("entity_tree_pine"),
+&"core:pig": ExtResource("entity_pig"),
+&"core:meadow_grass": ExtResource("entity_meadow_grass"),
+&"core:flower_gold": ExtResource("entity_flower_gold"),
+&"core:flower_rose": ExtResource("entity_flower_rose"),
+&"core:flower_lilac": ExtResource("entity_flower_lilac"),
+&"core:mountain_pebbles": ExtResource("entity_mountain_pebbles"),
+&"core:mountain_shards": ExtResource("entity_mountain_shards"),
+&"core:mountain_boulder": ExtResource("entity_mountain_boulder")
+})
+biomes = Array[ExtResource("biome")]([ExtResource("biome_meadow"), ExtResource("biome_forest"), ExtResource("biome_desert"), ExtResource("biome_mountain")])
+recipes = Array[ExtResource("recipe")]([ExtResource("recipe_timber"), ExtResource("recipe_slab"), ExtResource("recipe_stairs"), ExtResource("recipe_fence"), ExtResource("recipe_paving"), ExtResource("recipe_wall"), ExtResource("recipe_roof"), ExtResource("recipe_roof_reversed"), ExtResource("recipe_pickaxe"), ExtResource("recipe_sword")])
+crafting_tags = Array[ExtResource("crafting_tag")]([ExtResource("crafting_wood"), ExtResource("crafting_stone"), ExtResource("crafting_roof")])

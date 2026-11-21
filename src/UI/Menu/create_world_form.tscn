@@ -1,0 +1,69 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/UI/Menu/create_world_form.gd" id="1"]
+
+[node name="CreateWorldForm" type="VBoxContainer"]
+custom_minimum_size = Vector2(340, 0)
+theme_override_constants/separation = 8
+script = ExtResource("1")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Novo mundo"
+
+[node name="NameField" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="NameLabel" type="Label" parent="NameField"]
+layout_mode = 2
+text = "Nome"
+
+[node name="WorldName" type="LineEdit" parent="NameField"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="SeedField" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="SeedLabel" type="Label" parent="SeedField"]
+layout_mode = 2
+text = "Seed (opcional)"
+
+[node name="Seed" type="LineEdit" parent="SeedField"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+placeholder_text = "Deixe em branco para gerar uma seed"
+
+[node name="Status" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.56, 0.22, 0.16, 1)
+theme_override_font_sizes/font_size = 11
+
+[node name="Actions" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Back" type="Button" parent="Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 33)
+layout_mode = 2
+text = "Voltar"
+
+[node name="Spacer" type="Control" parent="Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Create" type="Button" parent="Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(132, 33)
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "Criar mundo"

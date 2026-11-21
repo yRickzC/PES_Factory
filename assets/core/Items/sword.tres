@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Inventory/inventory_item.gd" id="item"]
+[ext_resource type="Script" path="res://addons/ldk/core/Equipment/hand_equipment.gd" id="equipment"]
+[ext_resource type="Script" path="res://addons/ldk/core/Equipment/hand_equipment_visual.gd" id="visual"]
+[ext_resource type="Script" path="res://addons/ldk/core/Equipment/melee_weapon.gd" id="weapon"]
+[ext_resource type="Script" path="res://addons/ldk/core/Equipment/melee_effects.gd" id="effects"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/sword.tres" id="texture"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/sword_trail.tres" id="trail"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/sword_hit.tres" id="hit"]
+[ext_resource type="Resource" path="res://assets/core/Settings/hit_feedback.tres" id="feedback"]
+
+[sub_resource type="Resource" id="action"]
+script = ExtResource("weapon")
+duration = 0.27
+impact_fraction = 0.26
+active_end_fraction = 0.68
+cooldown = 0.31
+movement_scale = 0.78
+repeat_while_held = false
+damage = 3
+reach = 1.8
+arc_degrees = 106.0
+hit_feedback = ExtResource("feedback")
+
+[sub_resource type="Resource" id="sword_effects"]
+script = ExtResource("effects")
+trail_texture = ExtResource("trail")
+hit_texture = ExtResource("hit")
+
+[sub_resource type="Resource" id="pose"]
+script = ExtResource("visual")
+texture = ExtResource("texture")
+grip_pixel = Vector2(7.5, 12.5)
+rest_angle = -26.0
+raised_offset = Vector2(-2, -5)
+impact_offset = Vector2(5, 0)
+steps_per_phase = 4
+melee_effects = SubResource("sword_effects")
+
+[sub_resource type="Resource" id="hand_equipment"]
+script = ExtResource("equipment")
+action = SubResource("action")
+visual = SubResource("pose")
+
+[resource]
+script = ExtResource("item")
+id = &"core:sword"
+title = "Espada"
+icon_id = &"core:sword"
+stack_limit = 1
+equipment = SubResource("hand_equipment")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" format=3 uid="uid://8cu55wgwjypv"]
+
+[ext_resource type="Script" uid="uid://cf1f504d4tm38" path="res://src/UI/hotbar_config.gd" id="1_config"]
+
+[sub_resource type="StyleBoxFlat" id="Style_tray"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.68, 0.6, 0.45, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18, 0.28, 0.31, 1)
+shadow_color = Color(0.13, 0.21, 0.24, 0.52)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[resource]
+script = ExtResource("1_config")
+panel_style = SubResource("Style_tray")

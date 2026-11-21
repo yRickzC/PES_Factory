@@ -1,0 +1,277 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/UI/demo_inventory.gd" id="1_view"]
+[ext_resource type="Script" path="res://src/UI/demo_crafting.gd" id="2_crafting"]
+[ext_resource type="Script" path="res://src/UI/crafting_queue_view.gd" id="3_queue"]
+
+[sub_resource type="StyleBoxFlat" id="Style_panel"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(0.98, 0.92, 0.75, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.18, 0.28, 0.31, 1)
+shadow_color = Color(0.13, 0.21, 0.24, 0.52)
+shadow_size = 3
+shadow_offset = Vector2(3, 4)
+
+[sub_resource type="StyleBoxFlat" id="Style_button"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.93, 0.85, 0.67, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.53, 0.44, 0.36, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_hover"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.94, 0.76, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.44, 0.36, 0.29, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_active"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.97, 0.77, 0.42, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.61, 0.36, 0.24, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_focus"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.19, 0.38, 0.38, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="Style_disabled"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.91, 0.86, 0.72, 1)
+
+[sub_resource type="StyleBoxEmpty" id="Style_progress_track"]
+
+[sub_resource type="StyleBoxFlat" id="Style_progress_fill"]
+bg_color = Color(0.38, 0.68, 0.37, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_inset"]
+content_margin_left = 7.0
+content_margin_top = 5.0
+content_margin_right = 7.0
+content_margin_bottom = 5.0
+bg_color = Color(0.94, 0.87, 0.69, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.70, 0.60, 0.47, 1)
+
+[sub_resource type="Theme" id="Theme_bag"]
+default_font_size = 13
+Button/colors/font_color = Color(0.18, 0.28, 0.31, 1)
+Button/colors/font_focus_color = Color(0.18, 0.28, 0.31, 1)
+Button/colors/font_hover_color = Color(0.18, 0.28, 0.31, 1)
+Button/colors/font_hover_pressed_color = Color(0.18, 0.28, 0.31, 1)
+Button/colors/font_pressed_color = Color(0.18, 0.28, 0.31, 1)
+Button/colors/font_disabled_color = Color(0.48, 0.43, 0.36, 1)
+Button/constants/icon_max_width = 16
+Button/styles/normal = SubResource("Style_button")
+Button/styles/hover = SubResource("Style_hover")
+Button/styles/pressed = SubResource("Style_active")
+Button/styles/hover_pressed = SubResource("Style_active")
+Button/styles/focus = SubResource("Style_focus")
+Button/styles/disabled = SubResource("Style_disabled")
+Label/colors/font_color = Color(0.18, 0.28, 0.31, 1)
+ProgressBar/styles/background = SubResource("Style_progress_track")
+ProgressBar/styles/fill = SubResource("Style_progress_fill")
+TabContainer/colors/font_selected_color = Color(0.18, 0.28, 0.31, 1)
+TabContainer/colors/font_unselected_color = Color(0.29, 0.32, 0.31, 1)
+TabContainer/font_sizes/font_size = 11
+TabContainer/styles/panel = SubResource("Style_inset")
+TabContainer/styles/tab_selected = SubResource("Style_active")
+TabContainer/styles/tab_unselected = SubResource("Style_button")
+TabContainer/styles/tab_hovered = SubResource("Style_hover")
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_view")
+
+[node name="Screen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture_filter = 1
+theme = SubResource("Theme_bag")
+
+[node name="Dialog" type="ColorRect" parent="Screen"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13, 0.23, 0.26, 0.42)
+
+[node name="Center" type="MarginContainer" parent="Screen/Dialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 4.0
+offset_right = -18.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Screen/Dialog/Center"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_panel")
+
+[node name="Column" type="VBoxContainer" parent="Screen/Dialog/Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Header" type="HBoxContainer" parent="Screen/Dialog/Center/Panel/Column"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Screen/Dialog/Center/Panel/Column/Header"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Inventário"
+vertical_alignment = 1
+
+[node name="CraftTitle" type="Label" parent="Screen/Dialog/Center/Panel/Column/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
+text = "Fabricação à mão"
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="Screen/Dialog/Center/Panel/Column/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Fechar inventário (I)"
+text = "×"
+
+[node name="Body" type="HBoxContainer" parent="Screen/Dialog/Center/Panel/Column"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="Items" type="VBoxContainer" parent="Screen/Dialog/Center/Panel/Column/Body"]
+layout_mode = 2
+custom_minimum_size = Vector2(225, 0)
+theme_override_constants/separation = 8
+
+[node name="StorageScroll" type="ScrollContainer" parent="Screen/Dialog/Center/Panel/Column/Body/Items"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="Slots" type="GridContainer" parent="Screen/Dialog/Center/Panel/Column/Body/Items/StorageScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 5
+
+[node name="SlotHint" type="Label" parent="Screen/Dialog/Center/Panel/Column/Body/Items"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+clip_text = true
+text_overrun_behavior = 3
+text = "Tab ou setas para escolher um slot"
+
+[node name="Crafting" type="VBoxContainer" parent="Screen/Dialog/Center/Panel/Column/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+script = ExtResource("2_crafting")
+
+[node name="RecipeTabs" type="TabContainer" parent="Screen/Dialog/Center/Panel/Column/Body/Crafting"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+clip_tabs = true
+
+[node name="Details" type="PanelContainer" parent="Screen/Dialog/Center/Panel/Column/Body/Crafting"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_inset")
+
+[node name="Column" type="VBoxContainer" parent="Screen/Dialog/Center/Panel/Column/Body/Crafting/Details"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="RecipeName" type="Label" parent="Screen/Dialog/Center/Panel/Column/Body/Crafting/Details/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+clip_text = true
+text_overrun_behavior = 3
+text = "Selecione uma receita"
+
+[node name="RecipeStatus" type="Label" parent="Screen/Dialog/Center/Panel/Column/Body/Crafting/Details/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="DetailScroll" type="ScrollContainer" parent="Screen/Dialog/Center/Panel/Column/Body/Crafting/Details/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="RecipeDetails" type="Label" parent="Screen/Dialog/Center/Panel/Column/Body/Crafting/Details/Column/DetailScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = 1
+theme_override_font_sizes/font_size = 10
+autowrap_mode = 3
+
+[node name="CraftingQueue" type="HBoxContainer" parent="Screen"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+mouse_filter = 2
+script = ExtResource("3_queue")

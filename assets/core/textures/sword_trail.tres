@@ -1,0 +1,11 @@
+[gd_resource type="ImageTexture" format=3]
+
+[ext_resource type="Script" path="res://assets/core/textures/pixel_pattern_texture.gd" id="pattern"]
+
+[resource]
+script = ExtResource("pattern")
+palette = Dictionary[String, Color]({
+"a": Color(0.64, 0.91, 0.82, 0.52),
+"b": Color(1, 1, 1, 1)
+})
+rows = PackedStringArray("...aa..", ".aabbaa", "abbbbba", ".aabba.", "...a...")

@@ -1,0 +1,127 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Wildlife/wildlife_view.gd" id="1"]
+
+[sub_resource type="StandardMaterial3D" id="Pink"]
+albedo_color = Color(0.91, 0.53, 0.57, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Rose"]
+albedo_color = Color(0.73, 0.36, 0.43, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="LightPink"]
+albedo_color = Color(1, 0.67, 0.67, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Dark"]
+albedo_color = Color(0.23, 0.12, 0.17, 1)
+roughness = 1.0
+
+[sub_resource type="BoxMesh" id="Body"]
+material = SubResource("Pink")
+size = Vector3(0.58, 0.46, 0.76)
+
+[sub_resource type="BoxMesh" id="Head"]
+material = SubResource("Pink")
+size = Vector3(0.48, 0.38, 0.38)
+
+[sub_resource type="BoxMesh" id="Ear"]
+material = SubResource("Rose")
+size = Vector3(0.13, 0.19, 0.10)
+
+[sub_resource type="BoxMesh" id="Muzzle"]
+material = SubResource("LightPink")
+size = Vector3(0.29, 0.17, 0.19)
+
+[sub_resource type="BoxMesh" id="Nostril"]
+material = SubResource("Rose")
+size = Vector3(0.045, 0.045, 0.02)
+
+[sub_resource type="BoxMesh" id="Eye"]
+material = SubResource("Dark")
+size = Vector3(0.025, 0.058, 0.059)
+
+[sub_resource type="BoxMesh" id="Leg"]
+material = SubResource("Rose")
+size = Vector3(0.13, 0.27, 0.14)
+
+[sub_resource type="BoxMesh" id="Tail"]
+material = SubResource("Rose")
+size = Vector3(0.065, 0.08, 0.15)
+
+[node name="Pig" type="Node3D"]
+script = ExtResource("1")
+pose_path = NodePath("Pose")
+head_path = NodePath("Pose/Head")
+legs_path = NodePath("Pose/Legs")
+
+[node name="Pose" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Pose"]
+position = Vector3(0, 0.43, 0.06)
+mesh = SubResource("Body")
+
+[node name="Head" type="Node3D" parent="Pose"]
+position = Vector3(0, 0.51, -0.25)
+
+[node name="Face" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(0, 0, -0.10)
+mesh = SubResource("Head")
+
+[node name="EarLeft" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(-0.17, 0.19, -0.08)
+rotation = Vector3(-0.18, 0, 0.24)
+mesh = SubResource("Ear")
+
+[node name="EarRight" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(0.17, 0.19, -0.08)
+rotation = Vector3(-0.18, 0, -0.24)
+mesh = SubResource("Ear")
+
+[node name="Muzzle" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(0, -0.077, -0.32)
+mesh = SubResource("Muzzle")
+
+[node name="NostrilLeft" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(-0.069, -0.067, -0.416)
+cast_shadow = 0
+mesh = SubResource("Nostril")
+
+[node name="NostrilRight" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(0.069, -0.067, -0.416)
+cast_shadow = 0
+mesh = SubResource("Nostril")
+
+[node name="EyeLeft" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(-0.234, 0.043, -0.21)
+cast_shadow = 0
+mesh = SubResource("Eye")
+
+[node name="EyeRight" type="MeshInstance3D" parent="Pose/Head"]
+position = Vector3(0.234, 0.043, -0.21)
+cast_shadow = 0
+mesh = SubResource("Eye")
+
+[node name="Tail" type="MeshInstance3D" parent="Pose"]
+position = Vector3(0, 0.51, 0.48)
+rotation = Vector3(-0.48, 0.2, 0)
+mesh = SubResource("Tail")
+
+[node name="Legs" type="Node3D" parent="Pose"]
+
+[node name="FrontLeft" type="MeshInstance3D" parent="Pose/Legs"]
+position = Vector3(-0.19, 0.135, -0.2)
+mesh = SubResource("Leg")
+
+[node name="FrontRight" type="MeshInstance3D" parent="Pose/Legs"]
+position = Vector3(0.19, 0.135, -0.2)
+mesh = SubResource("Leg")
+
+[node name="RearRight" type="MeshInstance3D" parent="Pose/Legs"]
+position = Vector3(0.19, 0.135, 0.31)
+mesh = SubResource("Leg")
+
+[node name="RearLeft" type="MeshInstance3D" parent="Pose/Legs"]
+position = Vector3(-0.19, 0.135, 0.31)
+mesh = SubResource("Leg")

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" format=3 uid="uid://btj1261pqmf37"]
+
+[ext_resource type="Script" path="res://src/Content/native_block_resistance.gd" id="1_resistance"]
+
+[resource]
+script = ExtResource("1_resistance")
+seconds_by_id = Dictionary[StringName, float]({
+&"core@clay": 0.55,
+&"core@earth": 0.35,
+&"core@fence": 0.75,
+&"core@grass": 0.35,
+&"core@leaves": 0.25,
+&"core@log": 1.0,
+&"core@moss": 0.35,
+&"core@paving": 0.95,
+&"core@plaster": 0.75,
+&"core@roof": 0.8,
+&"core@roof_reversed": 0.8,
+&"core@sand": 0.25,
+&"core@sill": 0.8,
+&"core@slab": 0.8,
+&"core@stairs": 0.8,
+&"core@stone": 1.4,
+&"core@timber": 0.85,
+&"core@wall": 1.4,
+&"core@window": 0.45
+})

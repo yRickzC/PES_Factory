@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ContentScene" format=3 uid="uid://cf634qjrqpnwj"]
+
+[ext_resource type="Script" uid="uid://bk71ae5i605pk" path="res://addons/ldk/core/Content/content_breakable.gd" id="breakable"]
+[ext_resource type="Script" uid="uid://dsv0ynjvhuiu6" path="res://addons/ldk/core/Content/content_scene_collision.gd" id="collision"]
+[ext_resource type="Resource" path="res://assets/core/Entities/tree_drops.tres" id="drops"]
+[ext_resource type="Script" uid="uid://cusmha31inidk" path="res://addons/ldk/core/Content/content_scene.gd" id="entity"]
+[ext_resource type="Script" uid="uid://b6cyjo374a464" path="res://addons/ldk/core/Content/content_scene_visual.gd" id="visual"]
+
+[sub_resource type="Resource" id="resistance"]
+script = ExtResource("breakable")
+seconds = 1.8
+
+[sub_resource type="CylinderShape3D" id="trunk"]
+height = 1.55
+radius = 0.34
+
+[sub_resource type="Resource" id="collider"]
+script = ExtResource("collision")
+shape = SubResource("trunk")
+offset = Vector3(0, 0.775, 0)
+layers = 4
+
+[sub_resource type="Resource" id="appearance"]
+script = ExtResource("visual")
+scene_path = "res://assets/core/Entities/tree.tscn"
+sprite_textures = Dictionary[NodePath, StringName]({
+NodePath("Canopy"): &"core:tree",
+NodePath("GroundShadow"): &"core:shadow"
+})
+targeting_sprite = NodePath("Canopy")
+
+[resource]
+script = ExtResource("entity")
+id = &"core:tree"
+visual = SubResource("appearance")
+collision = SubResource("collider")
+breakable = SubResource("resistance")
+drops = ExtResource("drops")

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ContentScene" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene.gd" id="entity"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene_visual.gd" id="visual"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_breakable.gd" id="breakable"]
+
+[sub_resource type="Resource" id="appearance"]
+script = ExtResource("visual")
+batch_texture = &"core:meadow_grass"
+batch_size = Vector2(0.6875, 0.958865)
+
+[sub_resource type="Resource" id="resistance"]
+script = ExtResource("breakable")
+seconds = 0.11
+
+[resource]
+script = ExtResource("entity")
+id = &"core:meadow_grass"
+visual = SubResource("appearance")
+breakable = SubResource("resistance")

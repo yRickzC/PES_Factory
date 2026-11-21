@@ -1,0 +1,14 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://src/World/player_sprite_profile.gd" id="profile"]
+
+[resource]
+script = ExtResource("profile")
+walk_step_seconds = 0.14
+walk_bob_pixels = 1
+run_step_seconds = 0.1
+run_bob_pixels = 2
+run_arm_swing_pixels = Vector2i(1, 2)
+run_lean_pixels = 1
+run_shake_amplitude = Vector2(0.7, 0.9)
+run_shake_fade_seconds = 0.12

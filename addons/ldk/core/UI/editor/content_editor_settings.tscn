@@ -1,0 +1,85 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/UI/editor/content_editor_settings.gd" id="1"]
+[ext_resource type="PackedScene" path="res://addons/ldk/core/UI/editor/directory_tag_selector.tscn" id="2"]
+
+[node name="ContentEditorSettings" type="ScrollContainer"]
+horizontal_scroll_mode = 0
+script = ExtResource("1")
+
+[node name="Fields" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Identity" type="HBoxContainer" parent="Fields"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ContextField" type="VBoxContainer" parent="Fields/Identity"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContextLabel" type="Label" parent="Fields/Identity/ContextField"]
+layout_mode = 2
+text = "Contexto de edição"
+text_overrun_behavior = 3
+
+[node name="Contexts" type="OptionButton" parent="Fields/Identity/ContextField"]
+unique_name_in_owner = true
+layout_mode = 2
+accessibility_name = "Contexto de edição"
+text_overrun_behavior = 3
+fit_to_longest_item = false
+
+[node name="NamespaceField" type="VBoxContainer" parent="Fields/Identity"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NamespaceLabel" type="Label" parent="Fields/Identity/NamespaceField"]
+layout_mode = 2
+text = "Namespace"
+
+[node name="Namespace" type="LineEdit" parent="Fields/Identity/NamespaceField"]
+unique_name_in_owner = true
+layout_mode = 2
+accessibility_name = "Namespace"
+placeholder_text = "core"
+
+[node name="DirectoryTabs" type="TabContainer" parent="Fields"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ReadDirectories" parent="Fields/DirectoryTabs" instance=ExtResource("2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IgnoredDirectories" parent="Fields/DirectoryTabs" instance=ExtResource("2")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="DirectoryHelp" type="Label" parent="Fields"]
+layout_mode = 2
+text = "As duas listas incluem subpastas. Pastas ignoradas têm prioridade."
+autowrap_mode = 3
+
+[node name="Message" type="Label" parent="Fields"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="Actions" type="HBoxContainer" parent="Fields"]
+layout_mode = 2
+alignment = 2
+
+[node name="Back" type="Button" parent="Fields/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Voltar"
+
+[node name="Save" type="Button" parent="Fields/Actions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salvar"
+

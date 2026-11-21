@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+
+[node name="Tree" type="Node3D"]
+
+[node name="GroundShadow" type="Sprite3D" parent="."]
+position = Vector3(0, 0.015, -0.1)
+rotation_degrees = Vector3(-90, 0, 0)
+cast_shadow = 0
+texture_filter = 0
+pixel_size = 0.07
+
+[node name="Canopy" type="Sprite3D" parent="."]
+position = Vector3(0, 3.11631, 0)
+scale = Vector3(1, 1.917729, 1)
+cast_shadow = 0
+texture_filter = 0
+alpha_cut = 1
+pixel_size = 0.0625
+

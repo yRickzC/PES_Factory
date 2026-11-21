@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Inventory/inventory_item.gd" id="item"]
+[ext_resource type="Script" path="res://addons/ldk/core/Equipment/hand_equipment.gd" id="equipment"]
+[ext_resource type="Script" path="res://addons/ldk/core/Equipment/hand_equipment_visual.gd" id="visual"]
+[ext_resource type="Script" path="res://addons/ldk/core/Equipment/voxel_mining_tool.gd" id="mining"]
+[ext_resource type="Texture2D" path="res://assets/core/textures/pickaxe.tres" id="texture"]
+
+[sub_resource type="Resource" id="action"]
+script = ExtResource("mining")
+duration = 0.44
+impact_fraction = 0.5
+movement_scale = 0.0
+work_per_impact = 0.65
+
+[sub_resource type="Resource" id="pose"]
+script = ExtResource("visual")
+texture = ExtResource("texture")
+grip_pixel = Vector2(8.5, 12.5)
+rest_angle = -18.0
+raised_angle = 52.0
+impact_angle = -104.0
+raised_offset = Vector2(-2, -5)
+impact_offset = Vector2(2, 0)
+
+[sub_resource type="Resource" id="hand_equipment"]
+script = ExtResource("equipment")
+action = SubResource("action")
+visual = SubResource("pose")
+
+[resource]
+script = ExtResource("item")
+id = &"core:pickaxe"
+title = "Picareta"
+icon_id = &"core:pickaxe"
+stack_limit = 1
+equipment = SubResource("hand_equipment")

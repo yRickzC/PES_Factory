@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="VoxelBlock" format=3 uid="uid://cut21550is17q"]
+
+[ext_resource type="Script" uid="uid://ca8gwafiy2k1v" path="res://addons/ldk/core/Voxel/Blocks/voxel_block.gd" id="block"]
+[ext_resource type="Script" uid="uid://b3nxbh1ffgdss" path="res://addons/ldk/core/Voxel/Blocks/voxel_geometry.gd" id="geometry"]
+[ext_resource type="Script" uid="uid://dsek3vela512p" path="res://addons/ldk/core/Voxel/Blocks/voxel_occlusion.gd" id="occlusion"]
+
+[sub_resource type="Resource" id="visual"]
+script = ExtResource("geometry")
+cube = true
+face_tiles = Array[StringName]([&"core:water", &"core:water", &"core:water", &"core:water", &"core:water", &"core:water"])
+material_slot = 1
+
+[sub_resource type="Resource" id="liquid"]
+script = ExtResource("occlusion")
+merge_group = 1
+
+[resource]
+script = ExtResource("block")
+key = &"core:water"
+geometry = SubResource("visual")
+occlusion = SubResource("liquid")

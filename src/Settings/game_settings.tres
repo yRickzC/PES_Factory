@@ -1,0 +1,293 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Settings/game_settings.gd" id="1_settings"]
+[ext_resource type="Script" path="res://addons/ldk/core/Settings/game_action_definition.gd" id="2_action"]
+
+[sub_resource type="InputEventKey" id="binding_move_left"]
+physical_keycode = 65
+
+[sub_resource type="Resource" id="action_move_left"]
+script = ExtResource("2_action")
+id = &"core:move_left"
+title = "Mover para a esquerda"
+category = &"core:movement"
+category_title = "Movimento"
+binding = SubResource("binding_move_left")
+continuous = true
+
+[sub_resource type="InputEventKey" id="binding_move_right"]
+physical_keycode = 68
+
+[sub_resource type="Resource" id="action_move_right"]
+script = ExtResource("2_action")
+id = &"core:move_right"
+title = "Mover para a direita"
+category = &"core:movement"
+category_title = "Movimento"
+binding = SubResource("binding_move_right")
+continuous = true
+
+[sub_resource type="InputEventKey" id="binding_move_forward"]
+physical_keycode = 87
+
+[sub_resource type="Resource" id="action_move_forward"]
+script = ExtResource("2_action")
+id = &"core:move_forward"
+title = "Mover para cima"
+category = &"core:movement"
+category_title = "Movimento"
+binding = SubResource("binding_move_forward")
+continuous = true
+
+[sub_resource type="InputEventKey" id="binding_move_back"]
+physical_keycode = 83
+
+[sub_resource type="Resource" id="action_move_back"]
+script = ExtResource("2_action")
+id = &"core:move_back"
+title = "Mover para baixo"
+category = &"core:movement"
+category_title = "Movimento"
+binding = SubResource("binding_move_back")
+continuous = true
+
+[sub_resource type="InputEventKey" id="binding_jump"]
+physical_keycode = 32
+
+[sub_resource type="Resource" id="action_jump"]
+script = ExtResource("2_action")
+id = &"core:jump"
+title = "Pular"
+category = &"core:movement"
+category_title = "Movimento"
+binding = SubResource("binding_jump")
+continuous = true
+
+[sub_resource type="InputEventKey" id="binding_sprint"]
+physical_keycode = 4194325
+
+[sub_resource type="Resource" id="action_sprint"]
+script = ExtResource("2_action")
+id = &"core:sprint"
+title = "Correr"
+category = &"core:movement"
+category_title = "Movimento"
+binding = SubResource("binding_sprint")
+continuous = true
+
+[sub_resource type="InputEventKey" id="binding_respawn"]
+physical_keycode = 82
+
+[sub_resource type="Resource" id="action_respawn"]
+script = ExtResource("2_action")
+id = &"core:respawn"
+title = "Voltar ao ponto inicial"
+category = &"core:movement"
+category_title = "Movimento"
+binding = SubResource("binding_respawn")
+
+[sub_resource type="InputEventMouseButton" id="binding_mine"]
+button_index = 1
+
+[sub_resource type="Resource" id="action_mine"]
+script = ExtResource("2_action")
+id = &"core:mine"
+title = "Quebrar ou coletar"
+category = &"core:construction"
+category_title = "Construção"
+binding = SubResource("binding_mine")
+continuous = true
+
+[sub_resource type="InputEventMouseButton" id="binding_place"]
+button_index = 2
+
+[sub_resource type="Resource" id="action_place"]
+script = ExtResource("2_action")
+id = &"core:place"
+title = "Posicionar"
+category = &"core:construction"
+category_title = "Construção"
+binding = SubResource("binding_place")
+
+[sub_resource type="InputEventKey" id="binding_build_layer"]
+physical_keycode = 70
+
+[sub_resource type="Resource" id="action_build_layer"]
+script = ExtResource("2_action")
+id = &"core:build_layer"
+title = "Construir por camada"
+category = &"core:construction"
+category_title = "Construção"
+binding = SubResource("binding_build_layer")
+continuous = true
+
+[sub_resource type="InputEventKey" id="binding_inventory"]
+physical_keycode = 73
+
+[sub_resource type="Resource" id="action_inventory"]
+script = ExtResource("2_action")
+id = &"core:inventory"
+title = "Abrir bolsa"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_inventory")
+
+[sub_resource type="InputEventMouseButton" id="binding_hotbar_previous"]
+button_index = 4
+
+[sub_resource type="Resource" id="action_hotbar_previous"]
+script = ExtResource("2_action")
+id = &"core:hotbar_previous"
+title = "Slot anterior"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_previous")
+
+[sub_resource type="InputEventMouseButton" id="binding_hotbar_next"]
+button_index = 5
+
+[sub_resource type="Resource" id="action_hotbar_next"]
+script = ExtResource("2_action")
+id = &"core:hotbar_next"
+title = "Próximo slot"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_next")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_1"]
+physical_keycode = 49
+
+[sub_resource type="Resource" id="action_hotbar_1"]
+script = ExtResource("2_action")
+id = &"core:hotbar_1"
+title = "Selecionar slot 1"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_1")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_2"]
+physical_keycode = 50
+
+[sub_resource type="Resource" id="action_hotbar_2"]
+script = ExtResource("2_action")
+id = &"core:hotbar_2"
+title = "Selecionar slot 2"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_2")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_3"]
+physical_keycode = 51
+
+[sub_resource type="Resource" id="action_hotbar_3"]
+script = ExtResource("2_action")
+id = &"core:hotbar_3"
+title = "Selecionar slot 3"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_3")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_4"]
+physical_keycode = 52
+
+[sub_resource type="Resource" id="action_hotbar_4"]
+script = ExtResource("2_action")
+id = &"core:hotbar_4"
+title = "Selecionar slot 4"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_4")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_5"]
+physical_keycode = 53
+
+[sub_resource type="Resource" id="action_hotbar_5"]
+script = ExtResource("2_action")
+id = &"core:hotbar_5"
+title = "Selecionar slot 5"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_5")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_6"]
+physical_keycode = 54
+
+[sub_resource type="Resource" id="action_hotbar_6"]
+script = ExtResource("2_action")
+id = &"core:hotbar_6"
+title = "Selecionar slot 6"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_6")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_7"]
+physical_keycode = 55
+
+[sub_resource type="Resource" id="action_hotbar_7"]
+script = ExtResource("2_action")
+id = &"core:hotbar_7"
+title = "Selecionar slot 7"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_7")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_8"]
+physical_keycode = 56
+
+[sub_resource type="Resource" id="action_hotbar_8"]
+script = ExtResource("2_action")
+id = &"core:hotbar_8"
+title = "Selecionar slot 8"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_8")
+
+[sub_resource type="InputEventKey" id="binding_hotbar_9"]
+physical_keycode = 57
+
+[sub_resource type="Resource" id="action_hotbar_9"]
+script = ExtResource("2_action")
+id = &"core:hotbar_9"
+title = "Selecionar slot 9"
+category = &"core:inventory"
+category_title = "Inventário"
+binding = SubResource("binding_hotbar_9")
+
+[sub_resource type="InputEventKey" id="binding_pause"]
+physical_keycode = 4194305
+
+[sub_resource type="Resource" id="action_pause"]
+script = ExtResource("2_action")
+id = &"core:pause"
+title = "Abrir menu de pausa"
+category = &"core:interface"
+category_title = "Interface"
+binding = SubResource("binding_pause")
+
+[sub_resource type="InputEventKey" id="binding_zoom_in"]
+physical_keycode = 88
+
+[sub_resource type="Resource" id="action_zoom_in"]
+script = ExtResource("2_action")
+id = &"core:zoom_in"
+title = "Aproximar câmera"
+category = &"core:interface"
+category_title = "Interface"
+binding = SubResource("binding_zoom_in")
+
+[sub_resource type="InputEventKey" id="binding_zoom_out"]
+physical_keycode = 90
+
+[sub_resource type="Resource" id="action_zoom_out"]
+script = ExtResource("2_action")
+id = &"core:zoom_out"
+title = "Afastar câmera"
+category = &"core:interface"
+category_title = "Interface"
+binding = SubResource("binding_zoom_out")
+
+[resource]
+script = ExtResource("1_settings")
+actions = Array[ExtResource("2_action")]([SubResource("action_move_left"), SubResource("action_move_right"), SubResource("action_move_forward"), SubResource("action_move_back"), SubResource("action_jump"), SubResource("action_sprint"), SubResource("action_respawn"), SubResource("action_mine"), SubResource("action_place"), SubResource("action_build_layer"), SubResource("action_inventory"), SubResource("action_hotbar_previous"), SubResource("action_hotbar_next"), SubResource("action_hotbar_1"), SubResource("action_hotbar_2"), SubResource("action_hotbar_3"), SubResource("action_hotbar_4"), SubResource("action_hotbar_5"), SubResource("action_hotbar_6"), SubResource("action_hotbar_7"), SubResource("action_hotbar_8"), SubResource("action_hotbar_9"), SubResource("action_pause"), SubResource("action_zoom_in"), SubResource("action_zoom_out")])
+protected_action = &"core:pause"
+protected_binding = SubResource("binding_pause")

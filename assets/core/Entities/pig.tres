@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ContentScene" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene.gd" id="1"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene_visual.gd" id="2"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene_collision.gd" id="3"]
+[ext_resource type="Script" path="res://addons/ldk/core/Wildlife/wildlife_profile.gd" id="4"]
+[ext_resource type="PackedScene" path="res://assets/core/Entities/pig.tscn" id="5"]
+[ext_resource type="Resource" path="res://assets/core/Settings/hit_feedback.tres" id="6"]
+
+[sub_resource type="Resource" id="Visual"]
+script = ExtResource("2")
+scene = ExtResource("5")
+
+[sub_resource type="CapsuleShape3D" id="Capsule"]
+radius = 0.42
+height = 0.86
+
+[sub_resource type="Resource" id="Collision"]
+script = ExtResource("3")
+shape = SubResource("Capsule")
+offset = Vector3(0, 0.43, 0)
+layers = 8
+mask = 15
+
+[sub_resource type="Resource" id="Behaviour"]
+script = ExtResource("4")
+max_health = 10
+walk_speed = 1.55
+flee_speed = 3.15
+ground_probe_distance = 0.47
+hit_feedback = ExtResource("6")
+cooling_blocks = Array[StringName]([&"core:water", &"core:clay"])
+forage_ground = Array[StringName]([&"core:grass", &"core:grass_flecked", &"core:moss", &"core:earth", &"core:earth_pebbled"])
+chance_by_biome = Dictionary[StringName, float]({
+&"core:meadow": 0.48,
+&"core:forest": 0.34
+})
+spawn_ground = Array[StringName]([&"core:grass", &"core:grass_flecked", &"core:moss", &"core:earth", &"core:earth_pebbled"])
+group_size = Vector2i(2, 4)
+region_limit = 4
+
+[resource]
+script = ExtResource("1")
+id = &"core:pig"
+visual = SubResource("Visual")
+collision = SubResource("Collision")
+wildlife = SubResource("Behaviour")

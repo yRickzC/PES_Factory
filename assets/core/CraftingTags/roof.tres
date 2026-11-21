@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_tag.gd" id="crafting_tag"]
+
+[resource]
+script = ExtResource("crafting_tag")
+id = &"core:roofing"
+title = "Telhas"
+order = 2

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ContentScene" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene.gd" id="entity"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_scene_visual.gd" id="visual"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_breakable.gd" id="breakable"]
+[ext_resource type="Script" path="res://addons/ldk/core/Content/content_drops.gd" id="drops"]
+
+[sub_resource type="Resource" id="appearance"]
+script = ExtResource("visual")
+batch_texture = &"core:mountain_shards"
+batch_size = Vector2(0.75, 0.839006)
+
+[sub_resource type="Resource" id="resistance"]
+script = ExtResource("breakable")
+seconds = 0.35
+
+[sub_resource type="Resource" id="rewards"]
+script = ExtResource("drops")
+items = Dictionary[StringName, int]({&"core:stone": 1})
+
+[resource]
+script = ExtResource("entity")
+id = &"core:mountain_shards"
+visual = SubResource("appearance")
+breakable = SubResource("resistance")
+drops = SubResource("rewards")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="VoxelBlock" format=3 uid="uid://c8hfvm5qsnl1s"]
+
+[ext_resource type="Script" uid="uid://ca8gwafiy2k1v" path="res://addons/ldk/core/Voxel/Blocks/voxel_block.gd" id="block"]
+[ext_resource type="Script" uid="uid://bk71ae5i605pk" path="res://addons/ldk/core/Content/content_breakable.gd" id="breakable"]
+[ext_resource type="Script" uid="uid://b3nxbh1ffgdss" path="res://addons/ldk/core/Voxel/Blocks/voxel_geometry.gd" id="geometry"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/opaque.tres" id="opaque"]
+[ext_resource type="Resource" path="res://assets/core/Blocks/solid.tres" id="solid"]
+
+[sub_resource type="Resource" id="resistance"]
+script = ExtResource("breakable")
+
+[sub_resource type="Resource" id="visual"]
+script = ExtResource("geometry")
+cube = true
+
+[resource]
+script = ExtResource("block")
+key = &"core:missing_block"
+geometry = SubResource("visual")
+collision = ExtResource("solid")
+occlusion = ExtResource("opaque")
+breakable = SubResource("resistance")

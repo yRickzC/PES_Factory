@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Inventory/inventory_item.gd" id="item"]
+
+[resource]
+script = ExtResource("item")
+id = &"core:paving"
+title = "Piso"
+icon_id = &"core:paving"
+block_id = &"core:paving"

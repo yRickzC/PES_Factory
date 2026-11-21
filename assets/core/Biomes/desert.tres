@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="VoxelBiome" format=3 uid="uid://w4o2qt5iq287"]
+
+[ext_resource type="Script" uid="uid://cg5cgej82u4pd" path="res://addons/ldk/core/Voxel/Generation/voxel_biome_relief.gd" id="relief"]
+[ext_resource type="Script" uid="uid://dmqvfaikkx33i" path="res://addons/ldk/core/Voxel/Generation/voxel_biome.gd" id="script"]
+
+[sub_resource type="Resource" id="Relief_desert"]
+script = ExtResource("relief")
+base_height = 2.6
+amplitude = 0.8
+noise_frequency = 0.005
+smoothness = 0.55
+elevation_limits = Vector2(2, 3)
+
+[resource]
+script = ExtResource("script")
+key = &"core:desert"
+climate = Vector2(0.32, -0.28)
+terrain_relief = SubResource("Relief_desert")
+surface = &"core:sand"
+soil = &"core:sand"
+bedrock = &"core:stone"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="VoxelTargetingConfig" format=3 uid="uid://c324aw8en8y2r"]
+
+[ext_resource type="Script" uid="uid://cncyy0cjkyql0" path="res://addons/ldk/core/Voxel/Targeting/voxel_targeting_config.gd" id="config"]
+
+[resource]
+script = ExtResource("config")
+facing_distance = 1.0
+side_edge_width = 0.15
+bottom_edge_width = 0.12

@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="WorldDefinition" format=3 uid="uid://5jjev4v5ync4"]
+
+[ext_resource type="Script" uid="uid://de77qfv43ahds" path="res://addons/ldk/core/World/world_definition.gd" id="1"]
+[ext_resource type="Script" uid="uid://c4hqjj4kc85at" path="res://addons/ldk/core/Voxel/Generation/voxel_world_generation.gd" id="2"]
+[ext_resource type="Script" uid="uid://ch8o48w13v6iv" path="res://addons/ldk/core/Voxel/Generation/voxel_world_biome.gd" id="3"]
+[ext_resource type="Script" uid="uid://jh3e6sbsuhy3" path="res://addons/ldk/core/World/world_environment_config.gd" id="4"]
+[ext_resource type="Script" uid="uid://03et5bo6pqfy" path="res://addons/ldk/core/World/world_physics_config.gd" id="5"]
+[ext_resource type="Resource" uid="uid://c8fqhxmfeyibo" path="res://assets/core/Biomes/meadow.tres" id="6"]
+[ext_resource type="Resource" uid="uid://cm68offhkhy3k" path="res://assets/core/Biomes/forest.tres" id="7"]
+[ext_resource type="Resource" uid="uid://w4o2qt5iq287" path="res://assets/core/Biomes/desert.tres" id="8"]
+[ext_resource type="Resource" uid="uid://bd4n27e0ovkaw" path="res://assets/core/Biomes/mountain.tres" id="9"]
+
+[sub_resource type="Environment" id="Atmosphere_overworld"]
+background_mode = 1
+background_color = Color(0.43, 0.61, 0.51, 1)
+
+[sub_resource type="Resource" id="Environment_overworld"]
+script = ExtResource("4")
+atmosphere = SubResource("Atmosphere_overworld")
+cycle_enabled = true
+night_world_tint = Color(0.32, 0.38, 0.86, 1)
+
+[sub_resource type="Resource" id="Biome_meadow"]
+script = ExtResource("3")
+biome = ExtResource("6")
+
+[sub_resource type="Resource" id="Biome_forest"]
+script = ExtResource("3")
+biome = ExtResource("7")
+
+[sub_resource type="Resource" id="Biome_desert"]
+script = ExtResource("3")
+biome = ExtResource("8")
+
+[sub_resource type="Resource" id="Biome_mountain"]
+script = ExtResource("3")
+biome = ExtResource("9")
+frequency_weight = 0.85
+
+[sub_resource type="Resource" id="Generation_overworld"]
+script = ExtResource("2")
+biomes = Array[ExtResource("3")]([SubResource("Biome_meadow"), SubResource("Biome_forest"), SubResource("Biome_desert"), SubResource("Biome_mountain")])
+water_key = &"core:water"
+floor_key = &"core:bedrock"
+basins_enabled = true
+
+[sub_resource type="Resource" id="Physics_overworld"]
+script = ExtResource("5")
+sprint_speed_multiplier = 1.5
+move_acceleration = 40.0
+move_deceleration = 50.0
+
+[resource]
+script = ExtResource("1")
+save_id = &"core:overworld"
+generation = SubResource("Generation_overworld")
+environment = SubResource("Environment_overworld")
+physics = SubResource("Physics_overworld")
+spawn_origin = Vector2i(-2, 8)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3]
+
+[ext_resource type="Script" path="res://addons/ldk/core/Crafting/crafting_recipe.gd" id="recipe"]
+
+[resource]
+script = ExtResource("recipe")
+id = &"core:roof"
+tag = &"core:roofing"
+description = "Combine madeira e pedra para fabricar uma cobertura inclinada."
+ingredients = Dictionary[StringName, int]({&"core:timber": 1, &"core:stone": 1})
+product = &"core:roof"
+product_count = 2
+seconds = 1.0
