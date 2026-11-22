@@ -10,6 +10,7 @@ var _queue: CraftingQueue
 var _inventory: SlotInventory
 var _items: ContentRegistry
 var _selected: Recipe
+var _clicked_recipe: Recipe
 var _feedback := ""
 var _refresh_pending := false
 
@@ -82,8 +83,21 @@ func _add_tab(label: String, recipes: Array, group: ButtonGroup, texture_lookup:
 		button.toggle_mode = true
 		button.button_group = group
 		button.focus_entered.connect(_select_recipe.bind(recipe))
-		button.pressed.connect(_enqueue_recipe.bind(recipe))
+		button.mouse_exited.connect(func() -> void: _clicked_recipe = null)
+		button.gui_input.connect(_on_recipe_input.bind(recipe))
 		grid.add_child(button)
+
+
+func _on_recipe_input(event: InputEvent, recipe: Recipe) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if event.double_click and _clicked_recipe == recipe:
+			_clicked_recipe = null
+			_enqueue_recipe(recipe)
+		else:
+			_clicked_recipe = recipe
+	elif event.is_action_pressed(&"ui_accept"):
+		_clicked_recipe = null
+		_enqueue_recipe(recipe)
 
 
 func _enqueue_recipe(recipe: Recipe) -> void:
@@ -119,7 +133,7 @@ func _refresh_stock() -> void:
 func _refresh_status() -> void:
 	if _selected != null:
 		var batches := _queue.craftable_batches(_selected.id)
-		_status.text = "%d lote(s) · Enter fabrica" % batches if _feedback.is_empty() else _feedback
+		_status.text = "%d lote(s) · Clique duplo ou Enter" % batches if _feedback.is_empty() else _feedback
 
 
 func _refresh_details() -> void:

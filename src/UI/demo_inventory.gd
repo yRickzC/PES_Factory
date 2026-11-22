@@ -74,6 +74,12 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_DRAG_BEGIN and _source_slot >= 0:
+		_source_slot = -1
+		_refresh_hint()
+
+
 func _toggle() -> void:
 	_dialog.visible = not _dialog.visible
 	var open := is_open()

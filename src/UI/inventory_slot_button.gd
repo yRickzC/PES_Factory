@@ -33,4 +33,39 @@ func display(texture_lookup: Callable) -> void:
 	var item := _inventory.item_at(_slot)
 	tooltip_text = item.title if item != null else ""
 	_icon.texture = texture_lookup.call(item.icon_id) if item != null else null
-	_count.text = str(_inventory.count_at(_slot)) if item != null else ""
+	_count.text = str(_inventory.count_at(_slot)) if item != null and item.stack_limit > 1 else ""
+
+
+func _get_drag_data(_at: Vector2) -> Variant:
+	var item := _inventory.item_at(_slot)
+	if item == null:
+		return null
+	if _icon.texture != null:
+		var preview := TextureRect.new()
+		preview.texture = _icon.texture
+		preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		preview.expand_mode = _icon.expand_mode
+		preview.stretch_mode = _icon.stretch_mode
+		preview.size = _icon.size
+		set_drag_preview(preview)
+	else:
+		var preview := Label.new()
+		preview.text = item.title
+		set_drag_preview(preview)
+	return {"inventory": _inventory, "slot": _slot, "item": item}
+
+
+func _can_drop_data(_at: Vector2, data: Variant) -> bool:
+	if not data is Dictionary or data.get("inventory") != _inventory or not data.get("slot") is int:
+		return false
+	var source: int = data["slot"]
+	var item := _inventory.item_at(source)
+	if source == _slot or item == null or item != data.get("item"):
+		return false
+	var destination := _inventory.item_at(_slot)
+	return destination == null or (destination.id == item.id and _inventory.count_at(_slot) < destination.stack_limit)
+
+
+func _drop_data(at: Vector2, data: Variant) -> void:
+	if _can_drop_data(at, data):
+		_inventory.move(data["slot"], _slot)
